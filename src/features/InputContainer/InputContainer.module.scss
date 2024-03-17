@@ -1,0 +1,28 @@
+.InputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.TextFieldCont{
+    padding: 8px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.InputTextField {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    padding: 0px 8px;
+}
+
+.SmallAvatar {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}

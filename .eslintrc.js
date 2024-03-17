@@ -69,7 +69,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
-    'react/require-default-props': 1,
     'react/jsx-first-prop-new-line': [2, 'multiline'],
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 2,

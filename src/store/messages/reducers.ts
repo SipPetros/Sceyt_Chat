@@ -1,5 +1,6 @@
 import { Message } from '../types';
-import { ADD_MESSAGE, LOAD_MORE_MESSAGES } from './ActionTypes';
+import { AddMessageActionType } from './ActionTypes';
+import { AddMessageType } from './actions';
 import { messages } from './helpers';
 
 interface MessageState {
@@ -10,18 +11,13 @@ const initialState: MessageState = {
   messages,
 };
 
-// eslint-disable-next-line default-param-last, @typescript-eslint/no-explicit-any
-const messageReducer = (state = initialState, action: any) => {
+// eslint-disable-next-line default-param-last
+const messageReducer = (state = initialState, action: AddMessageType) => {
   switch (action.type) {
-    case ADD_MESSAGE:
+    case AddMessageActionType.ADD_MESSAGE:
       return {
         ...state,
         messages: [...state.messages, action.payload],
-      };
-    case LOAD_MORE_MESSAGES:
-      return {
-        ...state,
-        messages: [...state.messages, ...action.payload],
       };
     default:
       return state;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { MessageContProps } from '../../types';
 import SimpleMessage from '../../../SimpleMessage';
-import MessageImg from '../MessageImg';
+import Avatar from '../../../../shared/ui/Avatar';
+import styles from './MessageCont.module.scss';
 
 export default function MessageCont({ message, forwardedRef, isOwner, isPreviousSameUser }: MessageContProps) {
   const [showModal, setShowModal] = useState(false);
@@ -21,30 +22,19 @@ export default function MessageCont({ message, forwardedRef, isOwner, isPrevious
       {!isOwner
         ? (
           <>
-            {!isPreviousSameUser && <MessageImg url={message.photoURL} style={{ width: '24px', height: '24px', borderRadius: '50px' }} />}
-            <SimpleMessage style={{ marginLeft: isPreviousSameUser ? '32px' : '8px' }} message={message} forwardedRef={forwardedRef} isOwner={isOwner} handleImageClick={handleImageClick} />
+            {!isPreviousSameUser && <Avatar url={message.photoURL} className={styles.UserAvatar} />}
+            <SimpleMessage marginLeft={isPreviousSameUser ? '32px' : '8px'} message={message} forwardedRef={forwardedRef} isOwner={isOwner} handleImageClick={handleImageClick} />
           </>
         )
         : <SimpleMessage message={message} forwardedRef={forwardedRef} isOwner={isOwner} handleImageClick={handleImageClick} /> }
       {showModal && (
       <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          zIndex: 1000,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
+        className={styles.MessageCont}
         onClick={handleCloseModal}
       >
-        <img
-          src={modalImage}
-          style={{ maxWidth: '90%', maxHeight: '90%' }}
+        <Avatar
+          url={modalImage}
+          className={styles.Avatar}
         />
       </div>
       )}

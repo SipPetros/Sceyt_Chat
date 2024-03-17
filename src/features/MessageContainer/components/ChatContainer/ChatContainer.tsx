@@ -7,11 +7,10 @@ import { useSelector } from 'react-redux';
 import { Message } from '../../../../store/types';
 import { MessageContainerProps } from '../../types';
 import MessageCont from '../MessageCont';
-
-const DEFAULT_PAGE_SIZE = 20;
+import { DEFAULT_PAGE_SIZE } from './constants';
+import styles from './ChatContainer.module.scss';
 
 function MessageContainer({ pageSize = DEFAULT_PAGE_SIZE }: MessageContainerProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const messages = useSelector((state: any) => state.messages);
   const totalPages = messages.length / 20;
   const [displayedMessages, setDisplayedMessages] = useState(messages.slice(-pageSize).reverse());
@@ -74,16 +73,7 @@ function MessageContainer({ pageSize = DEFAULT_PAGE_SIZE }: MessageContainerProp
   return (
     <div
       ref={rootRef}
-      style={{
-        display: 'flex',
-        height: '100%',
-        padding: '24px',
-        flexDirection: 'column-reverse',
-        overflow: 'auto',
-        overflowAnchor: 'none',
-        position: 'sticky',
-        boxSizing: 'border-box',
-      }}
+      className={styles.ChatContainer}
     >
       {displayedMessages.map((message: Message, index: number) => (
         <MessageCont

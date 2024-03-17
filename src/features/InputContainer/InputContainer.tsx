@@ -2,13 +2,16 @@ import React, {
   KeyboardEvent, useRef, useState,
 } from 'react';
 import { useDispatch } from 'react-redux';
-import { DropDrownMenuButton, EmojiPicker, DropDown } from './components';
 import { InputContainerProps } from './types';
-import { ADD_MESSAGE } from '../../store/messages/ActionTypes';
-import IconButton from './components/IconButton';
+import IconButton from '../../shared/ui/IconButton';
 import {
   CloseIconBold, PlusIcon, SendMessageIcon, SmilingEmojiIcon,
-} from '../Icons';
+} from '../../shared/Icons';
+import { AddMessageActionType } from '../../store/messages/ActionTypes';
+import {
+  Avatar, DropDown, DropDownMenuButton, EmojiPicker,
+} from '../../shared/ui';
+import styles from './InputContainer.module.scss';
 
 function InputContainer({
   placeholder = 'Write a message...', borderRadius = '50px', style, UploadFileIcon = PlusIcon, EmojiIcon = SmilingEmojiIcon,
@@ -35,7 +38,7 @@ function InputContainer({
         isRead: true,
         isOwner: true,
       };
-      dispatch({ type: ADD_MESSAGE, payload: newMessage });
+      dispatch({ type: AddMessageActionType.ADD_MESSAGE, payload: newMessage });
       setValue('');
       setFile('');
     }
@@ -72,29 +75,23 @@ function InputContainer({
 
   return (
     <div
+      className={styles.InputContainer}
       style={{
-        position: 'relative',
         width,
-        display: 'flex',
-        alignItems: 'center',
       }}
     >
 
       <div
+        className={styles.TextFieldCont}
         style={{
-          padding: '8px',
-          border: '1px solid #ccc',
           borderRadius,
-          display: 'flex',
-          alignItems: 'center',
-          width: '100%',
           ...style,
         }}
       >
         <DropDown
           buttonIcon={<UploadFileIcon />}
         >
-          <DropDrownMenuButton
+          <DropDownMenuButton
             handleClick={handleButtonClick}
             btnText="Upload Image"
           />
@@ -105,14 +102,7 @@ function InputContainer({
           onChange={handleChange}
           onKeyUp={handlePressEnter}
           placeholder={placeholder}
-          style={{
-            width: '100%',
-            border: 'none', // No border
-            outline: 'none', // Remove outline on focus
-            background: 'transparent', // Transparent background
-            fontSize: '16px',
-            padding: '0px 8px',
-          }}
+          className={styles.InputTextField}
         />
         <input
           type="file"
@@ -121,7 +111,7 @@ function InputContainer({
           style={{ display: 'none' }}
           accept="image/*"
         />
-        {file && (<img src={file} alt={file} style={{ width: 24, height: 24, marginRight: 8 }} />)}
+        {file && (<Avatar url={file} className={styles.SmallAvatar} />)}
         <DropDown
           buttonIcon={<EmojiIcon />}
         >

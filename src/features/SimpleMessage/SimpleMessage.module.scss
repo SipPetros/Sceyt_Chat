@@ -1,0 +1,52 @@
+.SimpleMessageCont {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.SimpleMessageBody {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.MessageInfoCont {
+    top: 0;
+    font-size: 8px;
+    bottom: 8px;
+    border-radius: 15px;
+    background-color: #00000080;
+    padding: 8px;
+    color: white;
+    justify-content: center;
+    position: absolute;
+}
+
+.TextCont {
+    margin: 16px 16px 0px 16px;
+}
+
+.Avatar {
+    margin-top: 16px;
+}
+
+.MessageInfoCont {
+    top: 0;
+    font-size: 8px;
+    bottom: 8px;
+    border-radius: 15px;
+    background-color: #00000080;
+    padding: 8px;
+    color: white;
+    justify-content: center;
+    position: absolute;
+}
+
+.TextOnlyMessage {
+    font-size: 8px;
+    align-self: end;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+}

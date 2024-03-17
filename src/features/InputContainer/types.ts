@@ -15,7 +15,8 @@ export interface InputContainerProps {
 export interface IconProps {
       width?: number | string;
       height?: number | string;
-      style?: React.CSSProperties;
+      className?: string;
+      color?: string
   }
 
 export interface EmojiPickerProps {

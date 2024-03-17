@@ -13,5 +13,6 @@ export interface SimpleMessageProps {
     fontSize?: number | string,
     isOwner: boolean,
     handleImageClick: (el: string) => void,
-    style?: React.CSSProperties
+    className?: string,
+    marginLeft?: number | string,
   }

@@ -1,0 +1,10 @@
+.ChatContainer {
+    display: flex;
+    height: 100%;
+    padding: 24px;
+    flex-direction: column-reverse;
+    overflow: auto;
+    overflow-anchor: none;
+    position: sticky;
+    box-sizing: border-box;
+}

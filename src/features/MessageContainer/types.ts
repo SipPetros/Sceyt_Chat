@@ -14,12 +14,14 @@ export interface MessageContProps {
 
 export interface TextContProps {
     text: string,
-    style?: React.CSSProperties
+    fontSize: number | string,
+    className?: string,
 }
 
 export interface MessageImgProps {
     url: string;
     // eslint-disable-next-line no-unused-vars
     handleClick?: (el: string) => void;
-    style?: React.CSSProperties;
+    borderRadius?: number | string;
+    className?: string;
   }

@@ -1,6 +1,8 @@
+/* eslint-disable react/function-component-definition */
 import React from 'react';
 import MessageContainer from '../MessageContainer/components/ChatContainer';
 import InputContainer from '../InputContainer';
+import styles from './AppContainer.module.scss';
 
 interface AppContainerProps {
   width?: number | string,
@@ -8,21 +10,24 @@ interface AppContainerProps {
   backgroundColor?: string,
 }
 
-export default function AppContainer({ width = '100%', height = '100vh', backgroundColor = '#ffffff' }: AppContainerProps) {
-  return (
-    <div
-      style={{
-        backgroundColor,
-        width,
-        height,
-        margin: 'auto',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      <MessageContainer />
-      <InputContainer />
-    </div>
-  );
-}
+const AppContainer: React.FC<AppContainerProps> = ({ width, height, backgroundColor }) => (
+  <div
+    className={styles.AppContainerStyles}
+    style={{
+      backgroundColor,
+      width,
+      height,
+    }}
+  >
+    <MessageContainer />
+    <InputContainer />
+  </div>
+);
+
+AppContainer.defaultProps = {
+  backgroundColor: '#ffffff%',
+  height: '100vh',
+  width: '100%',
+};
+
+export default AppContainer;
