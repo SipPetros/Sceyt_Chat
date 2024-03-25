@@ -14,13 +14,13 @@ Welcome to project! This README will guide you through the steps to install and 
 
 1. Clone the repository to your local machine using SSH:
    ```bash
-   git clone git@github.com:SipPetros/Sceyt_Chat.git
+   git clone git@github.com:SipPetros/Simple_Chat.git
    ```
    Replace `username/repository.git` with the SSH URL of your repository.
 
 2. Navigate to the project directory:
    ```bash
-   cd Sceyt_Chat
+   cd Simple_Chat
    ```
 
 3. Install project dependencies using npm:
